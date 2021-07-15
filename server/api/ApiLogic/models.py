@@ -10,7 +10,7 @@ class GPSData(models.Model):
     longitude = models.FloatField(verbose_name='долгота')
     longitude_pw = models.CharField(max_length=2, verbose_name='сторона света')
     stand_alone_solution = models.IntegerField(verbose_name='тип решения 1-8')
-    num_satellite_use = models.CharField(max_length=2, verbose_name='кол-во используемых спутников')
+    num_satel_use = models.CharField(max_length=2, verbose_name='кол-во используемых спутников')
     hdop = models.FloatField(verbose_name='геометрический фактор')
     height = models.FloatField(verbose_name='высота над уровнем моря в метрах')
     WSG84 = models.FloatField(verbose_name='высота геоида над эллипсоидом')
