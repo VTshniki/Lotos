@@ -29,7 +29,7 @@ class PhysicalIndicatorsData(models.Model):
 class SystemData(models.Model):
     system_id = models.IntegerField(verbose_name='id', primary_key=True)
     date = models.DateTimeField(verbose_name='дата получения', auto_now=True)
-    type_process = models.CharField(verbose_name='тип процесса')
+    type_process = models.CharField(verbose_name='тип процесса', max_length=20)
     utilization_res = models.IntegerField(verbose_name='используемые ресурсы')
     status = models.CharField(max_length=255, verbose_name='статус')
     action = models.CharField(max_length=255, verbose_name='действие системы')
