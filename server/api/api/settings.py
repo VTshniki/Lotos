@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ApiLogic.apps.ApilogicConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

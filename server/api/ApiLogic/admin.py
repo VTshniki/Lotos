@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+admin.site.register(GPSData)
+admin.site.register(PhysicalIndicatorsData)
+admin.site.register(SystemData)

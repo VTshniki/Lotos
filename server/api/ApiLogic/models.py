@@ -17,6 +17,9 @@ class GPSData(models.Model):
     last_dgps = models.IntegerField(verbose_name='', default=0)
     id_dgps = models.IntegerField(verbose_name='', default=0)
 
+    def __str__(self):
+        return 'Это дата о геопозиции девайса время - {}'.format(self.utc_time)
+
 
 class PhysicalIndicatorsData(models.Model):
     id_connect_device = models.IntegerField(verbose_name='id', primary_key=True)
@@ -24,6 +27,9 @@ class PhysicalIndicatorsData(models.Model):
     device_name = models.CharField(max_length=255, verbose_name='имя устройства')
     device_data = models.JSONField(verbose_name='данные с устройства')
     status = models.CharField(max_length=2, verbose_name='статус устройства')
+
+    def __str__(self):
+        return 'Это Индикаторы девайса имени - {}'.format(self.device_name)
 
 
 class SystemData(models.Model):
@@ -33,3 +39,6 @@ class SystemData(models.Model):
     utilization_res = models.IntegerField(verbose_name='используемые ресурсы')
     status = models.CharField(max_length=255, verbose_name='статус')
     action = models.CharField(max_length=255, verbose_name='действие системы')
+
+    def __str__(self):
+        return 'Это дата системы номера - {}'.format(self.system_id)
