@@ -53,8 +53,8 @@ class SystemDataView(APIView):
 
 
 class UsersView(APIView):
-    def get(self, request):
-        data = Users.objects.all()
+    def get(self, request, name, password):
+        data = Users.objects.filter(name=name, password=password)
         serial = UsersSerial(data, many=True)
         return Response({'users': serial.data})
 
