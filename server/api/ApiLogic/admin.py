@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(GPSData)
 admin.site.register(PhysicalIndicatorsData)
 admin.site.register(SystemData)
+admin.site.register(Users)

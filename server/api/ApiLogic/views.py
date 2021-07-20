@@ -25,7 +25,8 @@ class GPSDataView(APIView):
 class PhysicalIndicatorsDataView(APIView):
     def get(self, request):
         data = PhysicalIndicatorsData.objects.all()
-        return Response({'PhysicalIndicatorsData': data})
+        serial = PhysicalIndicatorsDataSerial(data, many=True)
+        return Response({'PhysicalIndicatorsData': serial.data})
 
     def post(self, request):
         data = request.data.get('pid')
@@ -39,7 +40,8 @@ class PhysicalIndicatorsDataView(APIView):
 class SystemDataView(APIView):
     def get(self, request):
         data = SystemData.objects.all()
-        return Response({'SystemData': data})
+        serial = SystemDataSerial(data, many=True)
+        return Response({'SystemData': serial.data})
 
     def post(self, request):
         data = request.data.get('sys-data')
@@ -48,3 +50,18 @@ class SystemDataView(APIView):
         if serial.is_valid(raise_exception=True):
             data = serial.save()
         return Response({"success": f'{data.type_process} saved'})
+
+
+class UsersView(APIView):
+    def get(self, request):
+        data = Users.objects.all()
+        serial = UsersSerial(data, many=True)
+        return Response({'users': serial.data})
+
+    def post(self, request):
+        data = request.data.get('users')
+        print(data)
+        serial = UsersSerial(data=data)
+        if serial.is_valid(raise_exception=True):
+            data = serial.save()
+        return Response({"success": f'{data.name} saved'})

@@ -43,3 +43,12 @@ class SystemDataSerial(ser.Serializer):
 
     def create(self, validated_data):
         return SystemData.objects.create(**validated_data)
+
+
+class UsersSerial(ser.Serializer):
+    name = ser.CharField(max_length=255)
+    password = ser.CharField(max_length=255)
+    permission = ser.CharField(max_length=255)
+
+    def create(self, validated_data):
+        return Users.objects.create(**validated_data)

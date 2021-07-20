@@ -42,3 +42,12 @@ class SystemData(models.Model):
 
     def __str__(self):
         return 'Это дата системы номера - {}'.format(self.system_id)
+
+
+class Users(models.Model):
+    name = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    permission = models.CharField(default='user', max_length=255)
+
+    def __str__(self):
+        return self.name
