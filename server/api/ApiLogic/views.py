@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -15,7 +14,6 @@ class GPSDataView(APIView):
 
     def post(self, request):
         data = request.data.get('gps')
-        print(data)
         serial = GPSSerial(data=data)
         if serial.is_valid(raise_exception=True):
             data = serial.save()
@@ -30,7 +28,6 @@ class PhysicalIndicatorsDataView(APIView):
 
     def post(self, request):
         data = request.data.get('pid')
-        print(data)
         serial = PhysicalIndicatorsDataSerial(data=data)
         if serial.is_valid(raise_exception=True):
             data = serial.save()
@@ -45,7 +42,6 @@ class SystemDataView(APIView):
 
     def post(self, request):
         data = request.data.get('sys-data')
-        print(data)
         serial = SystemDataSerial(data=data)
         if serial.is_valid(raise_exception=True):
             data = serial.save()
@@ -60,7 +56,6 @@ class UsersView(APIView):
 
     def post(self, request):
         data = request.data.get('users')
-        print(data)
         serial = UsersSerial(data=data)
         if serial.is_valid(raise_exception=True):
             data = serial.save()

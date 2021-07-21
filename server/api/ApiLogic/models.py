@@ -24,7 +24,7 @@ class GPSData(models.Model):
 class PhysicalIndicatorsData(models.Model):
     id_connect_device = models.IntegerField(verbose_name='id', primary_key=True)
     data_connect = models.DateTimeField(verbose_name='дата подключения устройства', auto_now=True)
-    device_name = models.CharField(max_length=255, verbose_name='имя устройства')
+    device_name = models.CharField(max_length=255, verbose_name='имя устройства', unique=True)
     device_data = models.JSONField(verbose_name='данные с устройства')
     status = models.CharField(max_length=2, verbose_name='статус устройства')
 
@@ -45,9 +45,9 @@ class SystemData(models.Model):
 
 
 class Users(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
-    permission = models.CharField(default='user', max_length=255)
+    permission = models.CharField(default   ='user', max_length=255)
 
     def __str__(self):
         return self.name

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ApiLogic.apps.ApilogicConfig',
     'rest_framework',
+    'djcelery',
 ]
 
 MIDDLEWARE = [
